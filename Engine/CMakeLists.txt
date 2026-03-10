@@ -9,6 +9,10 @@ add_library(Engine SHARED
         src/Platform/Window.cpp
         include/Engine/Platform/Window.h
         include/Engine/Core/DLLExports.h
+        include/Engine/Core/Logger.h
+        include/Engine/Core/EngineInit.h
+        src/Core/EngineInit.cpp
+        src/Core/Logger.cpp
 )
 
 # Specify the include directories for this target.
