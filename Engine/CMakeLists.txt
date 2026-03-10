@@ -13,6 +13,11 @@ add_library(Engine SHARED
         include/Engine/Core/EngineInit.h
         src/Core/EngineInit.cpp
         src/Core/Logger.cpp
+        include/Engine/Core/Application.h
+        include/Engine/Core/Game.h
+        src/Core/Game.cpp
+        src/Core/Application.cpp
+        include/Engine/Core/EntryPoint.h
 )
 
 # Specify the include directories for this target.
