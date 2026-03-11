@@ -3,6 +3,7 @@
 //
 
 #include "Engine/Platform/Window.h"
+#include "Engine/Core/Logger.h"
 
 namespace Engine {
     Window::Window(std::string title, const int width, const int height) :
@@ -11,7 +12,7 @@ namespace Engine {
     bool Window::init() { // This is run to create the window itself
         if (!glfwInit()) {
             init_ = false;
-            // TODO ADD LOG MESSAGE FOR FAILED INIT GLFW
+            LOG_ERROR_C("Engine", "Failed to initialize GLFW!");
             return false;
         }
 
@@ -19,13 +20,13 @@ namespace Engine {
         // This creates the window through GLFW
         if (!window_) {
             init_ = false;
-            // TODO ADD LOG MESSAGE FOR FAILED CREATE GLFW WINDOW
+            LOG_ERROR_C("Engine", "Failed to create GLFW window!");
             return false;
         }
 
         glfwMakeContextCurrent(window_);
         // This makes the window the current context in the OS
-        // TODO ADD LOG MESSAGE FOR INIT WINDOW
+        LOG_INFO_C("Engine", "Window created!");
         init_ = true;
         return true; // Returns true when the window is created successfully
     }
@@ -60,7 +61,7 @@ namespace Engine {
         if (window_) {
             glfwDestroyWindow(window_);
             window_ = nullptr;
-            // TODO LOG WINDOW DESTROYED
+            LOG_INFO_C("Engine", "Window destroyed!");
         }
         glfwTerminate();
     }
